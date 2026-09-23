@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Організація дитячих свят</title>
+    <style>
+        body { font-family: 'Comic Sans MS', cursive, sans-serif; background-color: #ffe6f2; color: #333; margin: 0; padding: 20px; text-align: center; }
+        nav { margin-bottom: 30px; }
+        nav a { text-decoration: none; color: white; background-color: #ff66b2; padding: 10px 20px; border-radius: 20px; font-weight: bold; margin: 0 5px; transition: 0.3s; }
+        nav a:hover { background-color: #ff3399; }
+        h1, h2 { color: #ff3399; }
+        .container { max-width: 900px; margin: 0 auto; display: flex; gap: 20px; justify-content: center; }
+        .box { background: white; padding: 20px; border-radius: 15px; border: 3px dashed #ff99cc; width: 45%; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        ul { list-style: none; padding: 0; }
+        li { background-color: #fff0f5; margin-bottom: 10px; padding: 12px; border-radius: 8px; font-weight: bold; text-align: left; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/">Послуги</a>
+    <a href="/animators">Команда</a>
+    <a href="/report">Кабінет аніматора</a>
+</nav>
+<h1>Вітаємо у світі свята! 🎉</h1>
+
+<div class="container">
+    <div class="box">
+        <h2>Шоу Програми</h2>
+        <ul>
+            <li th:each="prog : ${programs}">
+                <span th:text="${prog.name}"></span><br>
+                <small style="color: #666;" th:text="${prog.description}"></small>
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+        <h2>Круті Доповнення</h2>
+        <ul>
+            <li th:each="addon : ${addons}">
+                <span th:text="${addon.name}"></span>
+                <span style="color: #e74c3c;" th:text="'(' + ${addon.price} + ' грн)'"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

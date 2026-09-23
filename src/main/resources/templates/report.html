@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Кабінет Аніматора - Звітність</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #ffe6f2; color: #333; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        nav { margin-bottom: 20px; }
+        nav a { text-decoration: none; color: white; background-color: #ff66b2; padding: 8px 16px; border-radius: 15px; font-weight: bold; margin: 0 5px; font-family: 'Comic Sans MS', cursive, sans-serif; }
+        nav a:hover { background-color: #ff3399; }
+        .form-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 500px; border: 3px dashed #ff99cc; }
+        h2 { color: #ff3399; text-align: center; font-family: 'Comic Sans MS', cursive, sans-serif; }
+        .blank-id { text-align: center; font-family: monospace; font-size: 16px; color: #d11a79; font-weight: bold; background: #fff0f5; padding: 10px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ff99cc; }
+        label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; }
+        input[type="date"], select, textarea { width: 100%; padding: 10px; border: 1px solid #ff99cc; border-radius: 8px; box-sizing: border-box; background-color: #fff9fc; }
+        button { margin-top: 20px; width: 100%; padding: 12px; background-color: #ff66b2; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { background-color: #ff3399; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/">Послуги</a>
+    <a href="/animators">Команда</a>
+    <a href="/report">Кабінет аніматора</a>
+</nav>
+
+<div class="form-container">
+    <h2>Подача звіту за свято</h2>
+
+    <!-- Прототип-бін спрацьовує тут -->
+    <div class="blank-id">Унікальний номер звіту (Prototype): <span th:text="${reportBlank}"></span></div>
+
+    <form>
+        <label>Дата свята:</label>
+        <input type="date" required>
+
+        <label>Хто працював (напарник):</label>
+        <select required>
+            <option value=""> Оберіть напарника </option>
+            <option th:each="anim : ${animators}" th:value="${anim.name}" th:text="${anim.name}"></option>
+        </select>
+
+        <label>Опис свята:</label>
+        <textarea rows="4" placeholder="Реквізит та треки, що були взяті на свято
+(використані-✅\невикористані-❌(реквізит)) під час свята " required></textarea>
+
+        <button type="button" onclick="alert('Звіт успішно заповнено !')">Відправити звіт</button>
+    </form>
+</div>
+</body>
+</html>
