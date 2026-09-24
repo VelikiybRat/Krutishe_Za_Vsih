@@ -1,80 +1,39 @@
 <!DOCTYPE html>
-<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Команда Аніматорів</title>
     <style>
-        body { font-family: 'Comic Sans MS', cursive, sans-serif; background-color: #ffe6f2; color: #333; margin: 0; padding: 20px; }
-        nav { text-align: center; margin-bottom: 30px; }
-        nav a { text-decoration: none; color: white; background-color: #ff66b2; padding: 10px 20px; border-radius: 20px; font-weight: bold; margin: 0 5px; transition: background-color 0.3s ease; }
-        nav a:hover { background-color: #ff3399; }
-        h1 { text-align: center; color: #ff3399; text-transform: uppercase; margin-bottom: 30px; }
-
-        .animator-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
-
-        .animator-card { background-color: white; border: 3px dashed #ff99cc; border-radius: 15px; padding: 20px; width: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; }
-        .animator-card:hover { transform: translateY(-12px) scale(1.03); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
-
-        .animator-name { color: #ff3399; font-size: 26px; text-align: center; margin-top: 0; margin-bottom: 5px; }
-        .tagline { font-style: italic; text-align: center; color: #666; margin-bottom: 20px; font-size: 14px; }
-        .superpower { background-color: #fff0f5; padding: 12px; border-radius: 10px; font-weight: bold; color: #d11a79; margin-top: 15px; text-align: center; border: 1px solid #ff99cc; }
-        ul { padding-left: 20px; margin-bottom: 0; }
-        li { margin-bottom: 8px; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; padding: 30px; max-width: 900px; margin: 0 auto; color: #333; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        h1 { color: #0984e3; font-size: 2.5em; margin: 0; }
+        .btn { background-color: #4ecdc4; color: white; padding: 12px 25px; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 10px; transition: 0.3s; }
+        .btn:hover { background-color: #45b7aa; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .animator-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; border-bottom: 5px solid #0984e3; }
+        .animator-name { font-size: 24px; color: #2d3436; margin-bottom: 5px; }
+        .animator-role { color: #636e72; font-size: 18px; margin-bottom: 15px; }
+        .status-pro { color: #fff; background-color: #d63031; padding: 5px 10px; border-radius: 8px; font-weight: bold; font-size: 14px; }
+        .status-new { color: #fff; background-color: #00b894; padding: 5px 10px; border-radius: 8px; font-weight: bold; font-size: 14px; }
+        .notes { margin-top: 15px; padding: 10px; background: #f1f2f6; border-radius: 8px; font-style: italic; color: #2f3640; }
     </style>
 </head>
 <body>
-
-<nav>
-    <a href="/">Послуги</a>
-    <a href="/animators">Команда</a>
-    <a href="/report">Кабінет аніматора</a>
-</nav>
-
-<h1>Наша супер-команда</h1>
-
-<div class="animator-container">
-    <!-- Іван -->
-    <div class="animator-card">
-        <h2 class="animator-name">ІВАН</h2>
-        <div class="tagline">той, хто легко запалює дитячу аудиторію</div>
-        <p><strong>Коротко про мене:</strong></p>
-        <ul>
-            <li>харизматичний, адаптивний, енергійний</li>
-            <li>уважний до дітей, стресостійкий</li>
-        </ul>
-        <div class="superpower">
-            ⚡ Суперсила: харизма, енергія та вміння відчути дітей з першої хвилини
-        </div>
-    </div>
-
-    <!-- Даша -->
-    <div class="animator-card">
-        <h2 class="animator-name">ДАША</h2>
-        <div class="tagline">та, що дарує діткам комфорт, турботу й яскраві емоції</div>
-        <p><strong>Коротко про мене:</strong></p>
-        <ul>
-            <li>турботлива, уважна, чуйна</li>
-            <li>комунікабельна, яскрава, щира</li>
-        </ul>
-        <div class="superpower">
-            💖 Суперсила: відчувати дітей, дарувати комфорт і створювати незабутні моменти
-        </div>
-    </div>
-
-    <!-- Ангеліна -->
-    <div class="animator-card">
-        <h2 class="animator-name">АНГЕЛІНА</h2>
-        <div class="tagline">та, що дарує діткам спокій, увагу й святковий настрій</div>
-        <p><strong>Коротко про мене:</strong></p>
-        <ul>
-            <li>терпляча, спокійна, стресостійка</li>
-            <li>харизматична, уважна, позитивна</li>
-        </ul>
-        <div class="superpower">
-            ✨ Суперсила: терпіння, спокій і харизма, які роблять свято теплим
-        </div>
-    </div>
+<div class="header">
+    <h1>🦸 Наша крута команда!</h1>
+    <a th:href="@{/}" class="btn">← Назад до програм</a>
 </div>
 
+<div class="grid">
+    <div class="animator-card" th:each="animator : ${animators}">
+        <h2 class="animator-name" th:text="${animator.name}">Ім'я</h2>
+        <div class="animator-role">Роль: <span th:text="${animator.role}"></span></div>
+
+        <span th:if="${animator.experience >= 2}" class="status-pro">🔥 Досвідчений профі</span>
+        <span th:unless="${animator.experience >= 2}" class="status-new">🌱 Молодий талант</span>
+
+        <div class="notes" th:text="${animator.notes ?: 'Без коментарів'}"></div>
+    </div>
+</div>
 </body>
 </html>

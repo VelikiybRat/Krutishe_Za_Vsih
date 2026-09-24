@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Вхід - Krutishe_Za_Vsih</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; width: 100%; max-width: 400px; }
+        h2 { color: #ff6b6b; margin-top: 0; font-size: 2em; }
+        .alert { padding: 15px; border-radius: 10px; margin-bottom: 20px; font-weight: bold; }
+        .alert-error { background-color: #ffeaea; color: #d63031; border: 1px solid #ff7675; }
+        .alert-success { background-color: #eafaf1; color: #27ae60; border: 1px solid #2ecc71; }
+        input[type="text"], input[type="password"] { width: 100%; padding: 15px; margin: 10px 0 20px; display: inline-block; border: 2px solid #dfe6e9; border-radius: 10px; box-sizing: border-box; font-size: 18px; transition: 0.3s; }
+        input[type="text"]:focus, input[type="password"]:focus { border-color: #4ecdc4; outline: none; }
+        .btn-large { background-color: #ff6b6b; color: white; padding: 15px 20px; width: 100%; border: none; border-radius: 10px; cursor: pointer; font-size: 20px; font-weight: bold; transition: 0.3s; }
+        .btn-large:hover { background-color: #ff4757; transform: scale(1.02); }
+        .back-link { display: block; margin-top: 20px; color: #0984e3; text-decoration: none; font-size: 16px; }
+    </style>
+</head>
+<body>
+<div class="login-box">
+    <h2>Вхід у CRM 🔒</h2>
+
+    <div th:if="${param.error}" class="alert alert-error">
+        ❌ Невірний логін або пароль! Спробуй ще раз.
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success">
+        ✅ Ти успішно вийшов із системи.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <input type="text" name="username" placeholder="Введіть логін (напр. vanya)" required />
+        <input type="password" name="password" placeholder="Введіть пароль" required />
+        <button type="submit" class="btn-large">Увійти в систему</button>
+    </form>
+
+    <a th:href="@{/}" class="back-link">← Повернутися на головну</a>
+</div>
+</body>
+</html>
