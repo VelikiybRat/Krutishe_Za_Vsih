@@ -1,6 +1,7 @@
 package org.example.krutishe_za_vsih.model;
 
 public class Animator {
+    private Long id; // Додано поле id
     private String name;
     private String role;
     private int experience; // Ось наше поле досвіду
@@ -15,6 +16,13 @@ public class Animator {
     }
 
     // Геттери та сеттери
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
