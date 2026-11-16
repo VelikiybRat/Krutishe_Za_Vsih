@@ -30,6 +30,17 @@
         <java.version>25</java.version>
     </properties>
     <dependencies>
+        <!-- Spring Data JPA (Hibernate) - Lab 6 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Валідація вхідних DTO (@Valid, @NotBlank, ...) - Lab 6 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
         <!-- JDBC: робота з PostgreSQL -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -72,7 +83,7 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.3.0</version>
+            <version>3.0.0</version>
         </dependency>
     </dependencies>
 

@@ -17,13 +17,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // Повністю вимикаємо CSRF для нашого API, щоб Postman міг кидати PATCH/POST/DELETE
+                // Вимикаємо CSRF для API, щоб Postman і Swagger могли надсилати POST/PUT/PATCH/DELETE
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
 
                 .authorizeHttpRequests(auth -> auth
-                        // Дозволяємо взагалі без авторизації доступ до всього API та Swagger
-                        .requestMatchers("/api/**", "/swagger-ui/**", "/v3/api-docs/**", "/", "/animators", "/css/**", "/images/**").permitAll()
-                        // Кабінет залишаємо захищеним для локальних тестів сайту
+                        // Публічний доступ до API, документації та Swagger UI
+                        .requestMatchers("/api/**", "/v3/**", "/swagger-ui/**", "/swagger-ui.html",
+                                "/", "/animators", "/error","/css/**", "/images/**").permitAll()
+                        // Кабінет залишаємо захищеним
                         .requestMatchers("/reports").hasAnyRole("ANIMATOR", "ADMIN")
                         .anyRequest().authenticated()
                 )
